@@ -50,7 +50,7 @@ export default class APP extends Component {
 
     
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
 
     const normalizedFilter = this.state.filter.toLowerCase();
   
