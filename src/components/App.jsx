@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
+import { Section, Title, TitleList } from "./App.styled";
 
 import { nanoid } from 'nanoid'
 
@@ -25,8 +26,11 @@ export default class APP extends Component {
 
     const { contacts } = this.state;
 
-    if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-      
+    if (contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    )
+    ) {
+      alert(`${name} is already in contacts.`)
     } else if
       (contacts.find(contact => contact.number === number)){
       alert (`${number} is already in contacts`)
@@ -57,14 +61,14 @@ export default class APP extends Component {
     const filtredContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
     
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Section>
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContacts} />
         
-        <h2>Contacts</h2>
+        <TitleList>Contacts</TitleList>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={filtredContacts} onDeleteContact={this.deleteContact}/>
-      </div>
+      </Section>
   );
   }
   
