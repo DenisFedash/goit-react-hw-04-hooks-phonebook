@@ -54,11 +54,11 @@ export default class APP extends Component {
 
     
   render() {
-    const { filter } = this.state;
+    const { contacts, filter } = this.state;
 
     const normalizedFilter = filter.toLowerCase();
   
-    const filtredContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+    const filtredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
     
     return (
       <Section>
